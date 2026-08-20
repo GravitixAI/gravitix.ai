@@ -1,0 +1,15 @@
+node_modules
+.next
+.env
+.env.local
+.env.*.local
+.deploy
+*.pem
+*.key
+.DS_Store
+npm-debug.log*
+apps/web/.next
+apps/web/node_modules
+apps/web/.env
+apps/web/.env*
+!apps/web/.env.example

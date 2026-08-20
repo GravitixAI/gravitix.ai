@@ -1,0 +1,55 @@
+:root {
+  --ccad-navy: #0b3d5c;
+  --ccad-navy-dark: #082c43;
+  --ccad-gold: #c4a35a;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  background: #f4f6f8;
+  color: #1b1f24;
+}
+
+.site-header {
+  background: var(--ccad-navy);
+  border-bottom: 3px solid var(--ccad-gold);
+}
+
+.site-header .navbar-brand,
+.site-header .nav-link {
+  color: #fff !important;
+}
+
+.site-header .nav-link:hover {
+  color: var(--ccad-gold) !important;
+}
+
+.staging-banner {
+  background: #fff3cd;
+  border-bottom: 1px solid #ffe69c;
+  color: #664d03;
+  font-size: 0.9rem;
+}
+
+.site-footer {
+  background: var(--ccad-navy-dark);
+  color: #d7e3ec;
+}
+
+.card-section {
+  border: 0;
+  box-shadow: 0 0.25rem 0.75rem rgba(11, 61, 92, 0.08);
+}
+
+.honeypot {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
