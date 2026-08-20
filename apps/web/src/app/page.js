@@ -1,58 +1,57 @@
 import { PublicHeader, SiteFooter } from "@/components/SiteChrome";
-import { readSessionFromCookieStore } from "@/lib/session";
 
-export const dynamic = "force-dynamic";
+const SECTIONS = [
+  {
+    id: "courses",
+    title: "Courses",
+    copy: "Course catalog coming next.",
+  },
+  {
+    id: "paths",
+    title: "Learning Paths",
+    copy: "Guided paths from fundamentals to applied AI.",
+  },
+  {
+    id: "resources",
+    title: "Resources",
+    copy: "Reference material, glossaries, and practice sets.",
+  },
+  {
+    id: "about",
+    title: "About",
+    copy: "Gravitix AI exists to make serious AI education clear, structured, and usable.",
+  },
+  {
+    id: "get-started",
+    title: "Get Started",
+    copy: "Enrollment and onboarding will live here.",
+  },
+];
 
-export default async function HomePage() {
-  const session = await readSessionFromCookieStore();
-
+export default function HomePage() {
   return (
     <>
-      <div className="staging-banner py-2 text-center">
-        Staging site on gravitix.ai. collincad.org will cut over after later
-        phases.
-      </div>
-      <PublicHeader session={session} />
-      <main className="container py-5">
-        <div className="row g-4">
-          <div className="col-lg-8">
-            <div className="card card-section">
-              <div className="card-body p-4 p-md-5">
-                <h1 className="h2 mb-3">Collin Central Appraisal District</h1>
-                <p className="lead">
-                  This is the Phase 0 skeleton for the public website rebuild:
-                  HTTPS, database, sessions, and staff logins with roles.
-                </p>
-                <p>
-                  Pages, the document library, the cited chatbot, and HelpSpot
-                  tickets come in later phases. Property search does not move
-                  onto this server.
-                </p>
-                <a
-                  className="btn btn-primary"
-                  href="https://onlineportal.collincad.org"
-                  rel="noopener noreferrer"
-                >
-                  Search property records
-                </a>
-              </div>
+      <PublicHeader />
+      <main className="flex-grow-1 d-flex flex-column">
+        <section className="container-xl home-hero d-flex flex-column justify-content-center px-4 px-sm-3 py-5">
+          <p className="home-hero-label mb-0">AI education</p>
+          <h1 className="home-hero-title mt-3 mb-0">
+            Learn AI from first principles.
+          </h1>
+          <p className="home-hero-lead mt-4 mb-0">
+            Gravitix AI is a learning home for courses, paths, and resources
+            that help you understand how modern AI actually works.
+          </p>
+        </section>
+
+        {SECTIONS.map((section) => (
+          <section className="home-section" id={section.id} key={section.id}>
+            <div className="container-xl px-4 px-sm-3">
+              <h2 className="home-section-title mb-0">{section.title}</h2>
+              <p className="home-section-copy mt-3 mb-0">{section.copy}</p>
             </div>
-          </div>
-          <div className="col-lg-4">
-            <div className="card card-section">
-              <div className="card-body p-4">
-                <h2 className="h5">Staff</h2>
-                <p className="mb-3">
-                  Editors, publishers, and admins use in-app accounts on this
-                  site. There is no Microsoft login.
-                </p>
-                <a className="btn btn-outline-secondary" href="/login">
-                  Staff login
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+          </section>
+        ))}
       </main>
       <SiteFooter />
     </>

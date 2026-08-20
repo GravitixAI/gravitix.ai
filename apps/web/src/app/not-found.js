@@ -1,9 +1,20 @@
+import Link from "next/link";
+import { PublicHeader, SiteFooter } from "@/components/SiteChrome";
+
 export default function NotFound() {
   return (
-    <main className="container py-5">
-      <h1 className="h3">Page not found</h1>
-      <p>The page you requested does not exist.</p>
-      <a href="/">Back to home</a>
-    </main>
+    <>
+      <PublicHeader />
+      <main className="container-xl flex-grow-1 py-5 px-4">
+        <h1 className="home-section-title">Page not found</h1>
+        <p className="home-section-copy mt-3">
+          The page you requested does not exist.
+        </p>
+        <Link className="btn btn-get-started mt-4" href="/">
+          Back to home
+        </Link>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

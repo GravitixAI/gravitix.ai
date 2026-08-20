@@ -1,7 +1,17 @@
 :root {
-  --ccad-navy: #0b3d5c;
-  --ccad-navy-dark: #082c43;
-  --ccad-gold: #c4a35a;
+  --gx-background: #07070b;
+  --gx-foreground: #f4f4f5;
+  --gx-muted: #a1a1aa;
+  --gx-violet: #8b5cf6;
+  --gx-violet-hover: #a78bfa;
+  --gx-border: rgba(255, 255, 255, 0.1);
+  --font-sans: "Inter", Arial, Helvetica, sans-serif;
+  --font-display: "Space Grotesk", "Inter", Arial, Helvetica, sans-serif;
+  color-scheme: dark;
+}
+
+html {
+  scroll-padding-top: 4rem;
 }
 
 html,
@@ -10,39 +20,144 @@ body {
 }
 
 body {
-  background: #f4f6f8;
-  color: #1b1f24;
+  background: var(--gx-background);
+  color: var(--gx-foreground);
+  font-family: var(--font-sans);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-muted-gx {
+  color: var(--gx-muted) !important;
+}
+
+.text-violet-gx {
+  color: var(--gx-violet-hover) !important;
 }
 
 .site-header {
-  background: var(--ccad-navy);
-  border-bottom: 3px solid var(--ccad-gold);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: rgba(7, 7, 11, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--gx-border);
 }
 
-.site-header .navbar-brand,
+.site-header .navbar {
+  --bs-navbar-color: var(--gx-muted);
+  --bs-navbar-hover-color: var(--gx-foreground);
+  --bs-navbar-active-color: var(--gx-foreground);
+  --bs-navbar-brand-color: var(--gx-foreground);
+  --bs-navbar-brand-hover-color: var(--gx-foreground);
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.15);
+}
+
+.site-header .navbar-brand {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 .site-header .nav-link {
-  color: #fff !important;
+  font-size: 0.875rem;
+  transition: color 0.15s ease;
 }
 
-.site-header .nav-link:hover {
-  color: var(--ccad-gold) !important;
+.btn-get-started {
+  --bs-btn-bg: var(--gx-violet);
+  --bs-btn-border-color: var(--gx-violet);
+  --bs-btn-hover-bg: var(--gx-violet-hover);
+  --bs-btn-hover-border-color: var(--gx-violet-hover);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-color: #fff;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.375rem 1rem;
 }
 
-.staging-banner {
-  background: #fff3cd;
-  border-bottom: 1px solid #ffe69c;
-  color: #664d03;
-  font-size: 0.9rem;
+.logo-mark {
+  width: 2rem;
+  height: 2rem;
+  color: var(--gx-violet-hover);
+  flex-shrink: 0;
+}
+
+.home-hero {
+  min-height: 70vh;
+}
+
+.home-hero-label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--gx-violet-hover);
+}
+
+.home-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  max-width: 48rem;
+}
+
+.home-hero-lead {
+  max-width: 36rem;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--gx-muted);
+}
+
+.home-section {
+  scroll-margin-top: 4rem;
+  border-top: 1px solid var(--gx-border);
+  padding: 6rem 0;
+}
+
+.home-section-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.home-section-copy {
+  max-width: 42rem;
+  color: var(--gx-muted);
 }
 
 .site-footer {
-  background: var(--ccad-navy-dark);
-  color: #d7e3ec;
+  border-top: 1px solid var(--gx-border);
+  color: var(--gx-muted);
 }
 
-.card-section {
-  border: 0;
-  box-shadow: 0 0.25rem 0.75rem rgba(11, 61, 92, 0.08);
+.auth-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--gx-border);
+  border-radius: 0.75rem;
+}
+
+.auth-card .form-control {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--gx-border);
+  color: var(--gx-foreground);
+}
+
+.auth-card .form-control:focus {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--gx-violet);
+  box-shadow: 0 0 0 0.2rem rgba(139, 92, 246, 0.2);
+  color: var(--gx-foreground);
+}
+
+.auth-card .form-label {
+  color: #d4d4d8;
 }
 
 .honeypot {
