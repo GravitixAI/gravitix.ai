@@ -2,7 +2,9 @@ name: ccad
 
 services:
   caddy:
-    image: caddy:2.10-alpine
+    build:
+      context: .
+      dockerfile: infra/Caddy.Dockerfile
     restart: unless-stopped
     ports:
       - "80:80"
@@ -12,7 +14,6 @@ services:
       ACME_EMAIL: ${ACME_EMAIL}
       SITE_ADDRESS: ${SITE_ADDRESS}
     volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     depends_on:
