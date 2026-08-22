@@ -1,8 +1,9 @@
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { href: "/#courses", label: "Courses" },
+  { href: "/#audiences", label: "Students" },
   { href: "/#paths", label: "Learning Paths" },
+  { href: "/#courses", label: "Courses" },
   { href: "/#resources", label: "Resources" },
   { href: "/#about", label: "About" },
 ];
@@ -39,7 +40,7 @@ function LogoMark() {
 export function PublicHeader() {
   return (
     <header className="site-header">
-      <nav aria-label="Primary" className="navbar navbar-expand-md">
+      <nav aria-label="Primary" className="navbar navbar-dark navbar-expand-md">
         <div className="container-xl d-flex flex-wrap align-items-center justify-content-between gap-3 py-2">
           <Link
             className="navbar-brand d-flex align-items-center gap-2"
@@ -89,7 +90,7 @@ export function PublicHeader() {
 export function DashboardHeader({ session }) {
   return (
     <header className="site-header">
-      <nav className="navbar navbar-expand-md">
+      <nav className="navbar navbar-dark navbar-expand-md">
         <div className="container-xl">
           <Link className="navbar-brand" href="/dashboard">
             Gravitix AI · Admin
